@@ -5,7 +5,6 @@ const commonConfig = {
   entry: "./src/index.ts",
   output: {
     path: path.resolve(__dirname, "dist"),
-    clean: true,
   },
   module: {
     rules: [
@@ -39,7 +38,7 @@ const esmConfig = merge(commonConfig, {
 
 const cjsConfig = merge(commonConfig, {
   output: {
-    filename: "bundle.cjs.js",
+    filename: "bundle.cjs",
     library: {
       type: "commonjs2",
     },
