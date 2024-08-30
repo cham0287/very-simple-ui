@@ -1,15 +1,20 @@
 {
   "name": "very-simple-ui",
+  "description": "A library offering simple UI Components",
+  "author": "Donghyun Kim",
+  "license": "MIT",
   "version": "1.0.0",
   "exports": {
     ".": {
-      "require": "./src/index.ts",
-      "import": "./src/index.ts"
+      "require": "./dist/bundle.cjs",
+      "import": "./dist/bundle.mjs",
+      "default": "./dist/bundle.mjs",
+      "types": "./dist/index.d.ts"
     },
     "./package.json": "./package.json"
   },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/bundle.cjs",
+  "module": "dist/bundle.mjs",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -18,7 +23,8 @@
     "build": "rm -rf dist/ && webpack -c webpack.config.js && tsc -p tsconfig.json --declaration --emitDeclarationOnly --declarationDir dist"
   },
   "peerDependencies": {
-    "react": "^17.0.0 || ^18.0.0"
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.25.4",
@@ -29,8 +35,11 @@
     "@types/react": "^18.0.0",
     "babel-loader": "^9.1.3",
     "lucide-react": "^0.428.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "typescript": "^4.5.0",
     "webpack": "^5.94.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-merge": "^5.8.0"
   }
 }
